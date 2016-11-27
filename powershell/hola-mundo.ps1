@@ -1,3 +1,3 @@
 function hola-mundo() {
-	echo "Â¡Hola mundo!"
+	echo "¡Hola mundo!"
 }

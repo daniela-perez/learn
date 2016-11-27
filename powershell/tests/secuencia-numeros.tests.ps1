@@ -11,7 +11,7 @@ Describe "secuencia-numeros" {
         secuencia-numeros 1              | Should Be '1'
         secuencia-numeros 5              | Should Be '1 2 3 4 5'
         secuencia-numeros 2 2            | Should Be '2'
-        secuencia-numeros 2 2 10         | Should Be '2 4 5 6 8 10'
+        secuencia-numeros 2 2 10         | Should Be '2 4 6 8 10'
         secuencia-numeros -3 3 3         | Should Be '-3 0 3'
     }
 }

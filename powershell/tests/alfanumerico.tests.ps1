@@ -5,6 +5,8 @@ $sut  = (Split-Path -Leaf $MyInvocation.MyCommand.Path).Replace(".tests.", ".")
 Describe "alfanumerico" {
     It "alfanumerico" {
         alfanumerico          | Should Be 'no'
+        alfanumerico -1       | Should Be 'si'
+        alfanumerico 1-1      | Should Be 'no'
         alfanumerico 123$#    | Should Be 'no'
         alfanumerico %$123    | Should Be 'no'
         alfanumerico abc$#    | Should Be 'no'
