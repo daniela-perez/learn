@@ -43,8 +43,9 @@ function ToUpper($palabra) {
 
 function convertidor-letras-mayusculas {
     $contador_de_palabras = 0;
+    $palabras = $args + $input;
 
-    ForEach ($palabra in $args) {
+    ForEach ($palabra in $palabras) {
         $palabra = [String]$palabra;
         $contador_de_palabras += 1;
         if ($contador_de_palabras -gt 1) {
@@ -54,5 +55,6 @@ function convertidor-letras-mayusculas {
             $palabras_en_mayusculas += ToUpper($palabra)
         }
     }
+
     "$palabras_en_mayusculas";
 }
