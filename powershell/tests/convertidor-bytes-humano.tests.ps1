@@ -1,15 +1,30 @@
 $here = Split-Path -Parent $MyInvocation.MyCommand.Path
 $sut  = (Split-Path -Leaf $MyInvocation.MyCommand.Path).Replace(".tests.", ".")
 . "$here\..\$sut"
- 
+
 Describe "convertidor-bytes-humano" {
     It "convertidor-bytes-humano" {
         convertidor-bytes-humano                | Should Be ''
         convertidor-bytes-humano palabra        | Should Be ''
+        $resultado = "palabra" | convertidor-bytes-humano
+        $resultado  | Should Be ''
+
         convertidor-bytes-humano -palabra       | Should Be ''
+        $resultado = "-palabra" | convertidor-bytes-humano
+        $resultado  | Should Be ''
+
         convertidor-bytes-humano 0              | Should Be '0'
+        $resultado = "0" | convertidor-bytes-humano
+        $resultado  | Should Be '0'
+
         convertidor-bytes-humano 1023           | Should Be '1023'
+        $resultado = "1023" | convertidor-bytes-humano
+        $resultado  | Should Be '1023'
+
         convertidor-bytes-humano 1024           | Should Be '1K'
+        $resultado = "1024" | convertidor-bytes-humano
+        $resultado  | Should Be '1K'
+
         convertidor-bytes-humano 1024s          | Should Be ''
         convertidor-bytes-humano 10240          | Should Be '10K'
         convertidor-bytes-humano 102400         | Should Be '100K'
