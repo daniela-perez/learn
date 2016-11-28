@@ -7,33 +7,45 @@
     }
 }
 
-function secuencia-numeros($numero_inicial, $numero_patron, $numero_final) {
-    if(!($numero_inicial -eq $null -and $numero_patron -eq $null -and $numero_final)) {
-        if(isNumeric ($numero_inicial, $numero_patron, $numero_final)) {
-            $numero_inicial= [int]$numero_inicial;
-            $numero_patron= [int]$numero_patron;
-            $numero_final= [int]$numero_final;
-                switch($numero_inicial, $numero_patron, $numero_final) { 
-                       $numero_final { $numero_final = 0; return "0"; $numero_final = 1;
-                    return "1"; $numero_final = $numero_final; 
-                       $numero_patron = 1
-                    while ($numero_patron -le $numero_inicial) {
-                        if ($numero_patron -eq $numero_inicial) {
-                            $resultado += "$numero_patron"
-                        } else {$resultado += "$numero_patron "}
-                                $numero_patron += 1;}
-                    }
-                } 
-                
-        }    
+function secuencia-numeros() {
+    $argumentos_totales = $args + $input;
+ 
+    switch ($argumentos_totales.length) { 
+        0 { "$null"; return; } 
+        1 { 
+            $numero_inicial = 1
+            $numero_patron  = 1
+            $numero_final   = $argumentos_totales[0]
+            if($numero_final -eq 0) { "0"; return; }
+          } 
+        2 { $numero_inicial = $argumentos_totales[0];
+            $numero_final   = $argumentos_totales[1];
+            $numero_patron  = 1;
+          } 
+        default {
+            $numero_inicial = $argumentos_totales[0];
+            $numero_patron  = $argumentos_totales[1];
+            $numero_final   = $argumentos_totales[2];
+            }
+        }
+    
+    #TODO: Generalizar estas funciones, areNumerics($arg1, ...)
+    if(!(isNumeric($numero_inicial))) { "$null"; return; }
+    if(!(isNumeric($numero_patron)))  { "$null"; return; }
+    if(!(isNumeric($numero_final)))   { "$null"; return; }
+    #TODO
+
+    $numero_inicial = [int]$numero_inicial
+    $numero_patron  = [int]$numero_patron
+    $numero_final   = [int]$numero_final
+
+    while ($numero_inicial  -le $numero_final) {
+        if ($numero_inicial -eq $numero_final) {
+            $resultado += "$numero_inicial"
+        } else {
+            $resultado += "$numero_inicial "
+        }   
+        $numero_inicial += $numero_patron          
     }
     "$resultado"; 
 }
-
-
-
-
-
-
-
-   
