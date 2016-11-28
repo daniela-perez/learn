@@ -8,7 +8,7 @@
 }
 
 function valor-absoluto($numero) {
-    if(!($numero -eq $null)) {
+    if(!([string]::IsNullOrEmpty($numero))) {
         if(isNumeric ($numero)) {
             $numero= [int]$numero;
             if($numero -lt 0) {
