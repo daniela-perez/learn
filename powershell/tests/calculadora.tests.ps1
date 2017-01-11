@@ -5,7 +5,9 @@ $sut  = (Split-Path -Leaf $MyInvocation.MyCommand.Path).Replace(".tests.", ".")
 Describe "calculadora" {
     It "calculadora" {
         calculadora           | Should Be '0'
+        calculadora cadena    | Should Be '0'
         calculadora 1 + 1     | Should Be '2'
+        calculadora 1 MAS 1   | Should Be '2'
         calculadora 1 mas 1   | Should Be '2'
         calculadora 2 - 1     | Should Be '1'
         calculadora 5 menos 1 | Should Be '4'
