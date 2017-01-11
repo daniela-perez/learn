@@ -1,3 +1,3 @@
 function hola-priscila () {
-	echo "Â¡Hola Priscila!"
+	echo "¡Hola Priscila!"
 }

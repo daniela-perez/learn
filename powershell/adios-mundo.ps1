@@ -1,3 +1,3 @@
 function adios-mundo() {
-	"Â¡Adios mundo!"
+	"¡Adios mundo!"
 }

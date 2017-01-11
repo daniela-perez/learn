@@ -4,7 +4,7 @@ $sut  = (Split-Path -Leaf $MyInvocation.MyCommand.Path).Replace(".tests.", ".")
 
 Describe "agenda" {
     It "agenda" {
-        agenda brenda      | Should Be 'Celular: 5531400539, E-mail: brenzulo.0204@gmail.com'
+        agenda brenda | Should Be 'Celular: 5531400539, E-mail: brenzulo.0204@gmail.com'
         $resultado = "brenda" | agenda
         $resultado  | Should Be 'Celular: 5531400539, E-mail: brenzulo.0204@gmail.com'
 

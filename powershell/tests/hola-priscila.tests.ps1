@@ -4,6 +4,6 @@ $sut = (Split-Path -Leaf $MyInvocation.MyCommand.Path).Replace(".tests.", ".")
 
 Describe "hola-priscila" {
     It "hola-priscila" {
-        hola-priscila | Should Be 'Â¡Hola Priscila!'
+        hola-priscila | Should Be "¡Hola Priscila!"
     }
 }
