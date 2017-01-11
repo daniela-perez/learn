@@ -1,6 +1,7 @@
-function hola-extranio ($nombre){
+function hola-extranio (){
+    $nombre= $args + $input;
 	if(!($nombre)) {
-		$nombre = "extraño";
+		$nombre = "extranio";
 	}
 	
     "Hola " + $nombre;
