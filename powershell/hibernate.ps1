@@ -12,7 +12,7 @@ function Set-PowerState {
         Write-Verbose -Message 'Executing Begin block';
 
         if (!$DisableWake) { $DisableWake = $false; };
-        if (!$Force) { $Force = $false; };
+        if (!$Force)       { $Force = $false; };
 
         Write-Verbose -Message ('Force is: {0}' -f $Force);
         Write-Verbose -Message ('DisableWake is: {0}' -f $DisableWake);
@@ -21,6 +21,7 @@ function Set-PowerState {
     process {
         Write-Verbose -Message 'Executing Process block';
         try {
+            Write-Host "Hibernando..."
             $Result = [System.Windows.Forms.Application]::SetSuspendState($PowerState, $Force, $DisableWake);
         }
         catch {
@@ -30,6 +31,7 @@ function Set-PowerState {
 
     end {
         Write-Verbose -Message 'Executing End block';
+        Write-Debug -Message 'Debug';
     }
 }
 
